@@ -3,8 +3,8 @@
 
 ## 🚧 | Prerequisites
 
-- [Python 3.12](https://nodejs.org/en/download/](https://www.python.org/downloads/)
-- [POKΞ ∫ LΞGΞNDS Server]((https://discord.gg/TnE9mFS5P2)
+- [Python 3.12+](https://www.python.org/downloads/)
+- [POKΞ ∫ LΞGΞNDS Server](https://discord.gg/TnE9mFS5P2)
 - You'll need to run `python launcher.py` to run the Bot. _You can do this on your pc
   locally_
 
