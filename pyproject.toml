@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "doraemon-bot"
+version = "0.1.0"
+description = ""
+authors = ["D9292S <kdeepankar40@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+discord-py = {git = "https://github.com/Rapptz/discord.py.git"}
+requests = "^2.31.0"
+python-dotenv = "^1.0.1"
+structlog = "^24.1.0"
+expiringdict = "^1.2.2"
+coloredlogs = "^15.0.1"
+python-json-logger = "^2.0.7"
+jishaku = {git = "https://github.com/Gorialis/jishaku.git"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
