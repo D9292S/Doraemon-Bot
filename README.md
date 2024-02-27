@@ -1,3 +1,6 @@
+## NOTE:
+- The bot is currently in development phase so the commands and other stuff added time to time. 
+
 ## 🚧 | Prerequisites
 
 - [Python 3.12](https://nodejs.org/en/download/](https://www.python.org/downloads/)
