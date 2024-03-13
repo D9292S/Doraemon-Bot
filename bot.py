@@ -22,17 +22,17 @@ DEFAULT_DISABLED_MESSAGE = (
 async def determine_prefix(bot, message):
     # Default prefix
     default_prefix = 'd!'
-    
+
     # Mention prefixes
     mention_prefixes = [f"<@{bot.user.id}>", f"<@!{bot.user.id}>"]
-    
+
     # Allow the bot's assigned role as prefix if possible
     if (guild := message.guild) and (role := guild.self_role):
         mention_prefixes.append(role.mention)
 
     # Combine default prefix and mention prefixes
     prefixes = [default_prefix] + mention_prefixes
-    
+
     return commands.when_mentioned_or(*prefixes)(bot, message)
 
 
@@ -129,7 +129,7 @@ class ClusterBot(commands.AutoShardedBot):
             },
         )
 
-    
+
     async def is_owner(self, user):
         """
         Check if a user is the owner of the bot.
@@ -145,7 +145,7 @@ class ClusterBot(commands.AutoShardedBot):
 
         # If not, defer to the default is_owner method
         return await super().is_owner(user)
-    
+
     def localized_embed(
         self,
         message_id: str,
@@ -157,7 +157,7 @@ class ClusterBot(commands.AutoShardedBot):
         block_fields: list[str] | bool = False,
         **kwargs: Any,
     ) -> discord.Embed:
-        
+
         # Create an error embed for fallback
         error_title = self._("localization-error")
         error_embed = discord.Embed(color=discord.Color.red(), title=error_title)
@@ -205,7 +205,7 @@ class ClusterBot(commands.AutoShardedBot):
             if errors:
                 return None
             return val
-        
+
 
         def extract_field_name(fluent_attribute: str) -> str:
             return fluent_attribute[fluent_attribute.find("-") + 1 : fluent_attribute.rfind("-")]
@@ -251,7 +251,7 @@ class ClusterBot(commands.AutoShardedBot):
         return embed
 
 
-    
+
     async def send_dm(self, user, message_content, *args, **kwargs):
         """
         Send a direct message to a user on Discord.
@@ -269,10 +269,10 @@ class ClusterBot(commands.AutoShardedBot):
         try:
             # Create a direct message channel with the specified user
             dm = await self.create_dm(user)
-            
+
             # Send the direct message with the provided content and optional arguments
             sent_message = await dm.send(message_content, *args, **kwargs)
-            
+
             # Return the sent message
             return sent_message
         except Exception as e:
@@ -292,7 +292,7 @@ class ClusterBot(commands.AutoShardedBot):
         for cog_name in cogs.default:
             await self.load_extension(f"cogs.{cog_name}")   
             self.log.info(f"Loaded extension: cogs.{cog_name}") 
-    
+
     async def on_ready(self):
         self.log.info("Bot is ready and running!")
 
@@ -309,7 +309,7 @@ class ClusterBot(commands.AutoShardedBot):
         replacements = {"—": "--", "'": "′", "‘": "′", "’": "′"}
         for original, replacement in replacements.items():
             message.content = message.content.replace(original, replacement)
-        
+
         # Continue processing commands after preprocessing
         await self.process_commands(message)
 
