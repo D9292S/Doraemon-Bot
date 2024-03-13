@@ -217,7 +217,7 @@ class ClusterBot(commands.AutoShardedBot):
         }
         if field_ordering:
             discovered_field_names = sorted(
-                discovered_field_names, key=lambda field_name: field_ordering.index(field_name)
+                discovered_field_names, key=field_ordering.index
             )
 
         for field_name in discovered_field_names:
