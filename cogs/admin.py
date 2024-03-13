@@ -1,6 +1,3 @@
-import random
-import typing
-from datetime import datetime
 
 from discord.ext import commands
 

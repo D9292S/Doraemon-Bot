@@ -1,7 +1,6 @@
 import os
 import re
 from collections import namedtuple
-from urllib.parse import quote_plus
 import discord
 import discord.gateway
 import discord.http

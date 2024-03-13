@@ -3,11 +3,9 @@ import logging
 import aiohttp
 import discord
 import structlog
-import typing
 from discord.ext import commands
 from expiringdict import ExpiringDict
 from typing import Any
-from pythonjsonlogger import jsonlogger
 
 import helpers
 
