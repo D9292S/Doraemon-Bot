@@ -28,7 +28,8 @@ Config = namedtuple(
 def patch_with_gateway(env_gateway):
     # Patching Discord.py classes to customize gateway behavior
     class ProductionHTTPClient(discord.http.HTTPClient):
-        async def get_gateway(self, **_):
+        @staticmethod
+        async def get_gateway(**_):
             return f"{env_gateway}?encoding=json&v=9"
 
         async def get_bot_gateway(self, **_):
@@ -41,14 +42,16 @@ def patch_with_gateway(env_gateway):
     class ProductionDiscordWebSocket(discord.gateway.DiscordWebSocket):
         DEFAULT_GATEWAY = yarl.URL(env_gateway)
 
-        def is_ratelimited(self):
+        @staticmethod
+        def is_ratelimited():
             return False
 
     class ProductionBot(bot.ClusterBot):
         async def before_identify_hook(self, shard_id, *, initial):
             pass
 
-        def is_ws_ratelimited(self):
+        @staticmethod
+        def is_ws_ratelimited():
             return False
 
     class ProductionReconnectWebSocket(Exception):
