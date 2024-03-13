@@ -23,7 +23,7 @@ class Administration(commands.Cog):
         await ctx.send(f'Pong! Latency: {latency_in_ms}ms')
 
 
-    
+
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(Administration(bot))
